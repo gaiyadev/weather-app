@@ -17,6 +17,8 @@ class App extends React.Component {
       celsius: undefined,
       temp_max: undefined,
       temp_min: undefined,
+      humidity: undefined,
+      pressure: undefined,
       description: '',
       error: false
     };
@@ -90,28 +92,38 @@ class App extends React.Component {
 
 
   getWeather = async (event) => {
-    event.preventDefault();
-    const city = event.target.elements.city.value;
-    const country = event.target.elements.country.value;
-    if (city && country) {
-      const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_Key}`);
-      const response = await api_call.json();
-      console.log(response);
+    try {
+      event.preventDefault();
+      const city = event.target.elements.city.value;
+      const country = event.target.elements.country.value;
+      if (city && country) {
+        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_Key}`);
+        const response = await api_call.json();
+        console.log(response);
+        this.setState({
+          city: `${response.name}, ${response.sys.country}`,
+          // country: response.sys.country,
+          celsius: this.calCelsius(response.main.temp),
+          temp_max: this.calCelsius(response.main.temp_max),
+          temp_min: this.calCelsius(response.main.temp_min),
+          description: response.weather[0].description,
+          humidity: response.main.humidity,
+          pressure: response.main.pressure,
+          icon: this.weatherIcons.ThunderStorm,
+          error: false
+        });
+        this.get_WeatherIcon(this.weatherIcons, response.weather[0].id);
+
+      } else {
+        this.setState({
+          error: true
+        });
+      }
+    } catch (error) {
       this.setState({
-        city: `${response.name}, ${response.sys.country}`,
-        // country: response.sys.country,
-        celsius: this.calCelsius(response.main.temp),
-        temp_max: this.calCelsius(response.main.temp_max),
-        temp_min: this.calCelsius(response.main.temp_min),
-        description: response.weather[0].description,
-        icon: this.weatherIcons.ThunderStorm,
-        error: false
-      });
-      this.get_WeatherIcon(this.weatherIcons, response.weather[0].id);
-    } else {
-      this.setState({
-        error: true
-      });
+        error: error.message
+      })
+
     }
   }
 
@@ -130,6 +142,8 @@ class App extends React.Component {
           temp_max={this.state.temp_max}
           temp_min={this.state.temp_min}
           weatherIcon={this.state.icon}
+          humidity={this.state.humidity}
+          pressure={this.state.pressure}
 
         />
       </div>

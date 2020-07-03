@@ -40,7 +40,7 @@ const textField = props => {
 function error(s) {
     return (
         <div className="alert alert-danger mx-5" role="alert">
-            Please enter city and country
+            Please provide a valid city and country name
         </div>
     )
 }
