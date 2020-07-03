@@ -29,7 +29,6 @@ const textField = props => {
                     </div>
                     <div className="col-md-3 mt-md-0 text-md-left">
                         <button type="submit" className="btn btn-warning btn-lg btn-block">Search</button>
-
                     </div>
                 </div>
             </form>

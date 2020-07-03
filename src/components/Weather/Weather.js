@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../css/weather-icons.min.css';
 
-const weather = (props) => {
+const weather = props => {
     return (
         <div>
             <div className="cards pt-4 text-light shadow-none p-3 mb-5 rounded">
@@ -26,10 +26,10 @@ const weather = (props) => {
 const minAndMax_Temp = (min, max) => {
     if (min && max) {
         return (
-            <h3 >
-                <strong className="px-4">  <sub>min</sub> {min}&deg;</strong>
-                <strong className="px-4"><sub>min</sub> {max}&deg;</strong>
-            </h3>
+            <h2 >
+                <strong className="px-4">   {min}&deg;</strong>
+                <strong className="px-4">{max}&deg;</strong>
+            </h2>
         );
     }
 }

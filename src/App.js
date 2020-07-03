@@ -5,7 +5,6 @@ import Form from './components/TextFields/InputField';
 
 //api key
 const API_Key = '7d1d5e1b3e6ff7d9cbac6936b2f277e5';
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -34,11 +33,19 @@ class App extends React.Component {
     }
   }
 
+  //Conveting temperature to celsius
   calCelsius = (temp) => {
     let cell = Math.floor(temp - 273.15);
     return cell;
   }
+  //converting the first character of the desscription to uppercase
+  charToUppercase = (char) => {
+    let findChar = char.charAt(0);
+    let sliceChar = char.slice(1, 313)
+    return findChar.toUpperCase() + sliceChar;
+  }
 
+  //condintion to render weather icons correctly
   get_WeatherIcon(rangeId) {
     switch (true) {
       case rangeId >= 200 && rangeId <= 232:
@@ -90,7 +97,7 @@ class App extends React.Component {
     }
   }
 
-
+  //making the api call
   getWeather = async (event) => {
     try {
       event.preventDefault();
@@ -106,14 +113,13 @@ class App extends React.Component {
           celsius: this.calCelsius(response.main.temp),
           temp_max: this.calCelsius(response.main.temp_max),
           temp_min: this.calCelsius(response.main.temp_min),
-          description: response.weather[0].description,
+          description: this.charToUppercase(response.weather[0].description),
           humidity: response.main.humidity,
           pressure: response.main.pressure,
           icon: this.weatherIcons.ThunderStorm,
           error: false
         });
         this.get_WeatherIcon(this.weatherIcons, response.weather[0].id);
-
       } else {
         this.setState({
           error: true
@@ -122,8 +128,7 @@ class App extends React.Component {
     } catch (error) {
       this.setState({
         error: error.message
-      })
-
+      });
     }
   }
 
@@ -144,7 +149,6 @@ class App extends React.Component {
           weatherIcon={this.state.icon}
           humidity={this.state.humidity}
           pressure={this.state.pressure}
-
         />
       </div>
     );
