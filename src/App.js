@@ -37,7 +37,7 @@ class App extends React.Component {
     return cell;
   }
 
-  get_WeatherIcon(icon, rangeId) {
+  get_WeatherIcon(rangeId) {
     switch (true) {
       case rangeId >= 200 && rangeId <= 232:
         this.setState({
@@ -88,10 +88,7 @@ class App extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.getWeather();
-  // }
-  //api call
+
   getWeather = async (event) => {
     event.preventDefault();
     const city = event.target.elements.city.value;

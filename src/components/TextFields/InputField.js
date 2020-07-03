@@ -11,7 +11,7 @@ const textField = props => {
                     <div className="col-md-3 offset-md-2">
                         <div className="form-group input-group-lg">
                             <input type="text"
-                                placeholder="City"
+                                placeholder="City (E.g Lagos)"
                                 className="form-control"
                                 id="city_name" autoComplete="off"
                                 name="city" />
@@ -21,14 +21,14 @@ const textField = props => {
                     <div className="col-md-3">
                         <div className="form-group input-group-lg">
                             <input type="text"
-                                placeholder="Country"
+                                placeholder="Country (Eg Nigeria)"
                                 className="form-control"
                                 id="country_name"
                                 name="country" />
                         </div>
                     </div>
                     <div className="col-md-3 mt-md-0 text-md-left">
-                        <button type="submit" className="btn btn-warning btn-lg">Search</button>
+                        <button type="submit" className="btn btn-warning btn-lg btn-block">Search</button>
 
                     </div>
                 </div>
@@ -37,7 +37,7 @@ const textField = props => {
     );
 }
 
-function error() {
+function error(s) {
     return (
         <div className="alert alert-danger mx-5" role="alert">
             Please enter city and country

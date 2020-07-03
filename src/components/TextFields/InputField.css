@@ -4,14 +4,11 @@
 .Form input[type='text']{
 background-color: transparent;
 color: #ffffff;
-border-bottom: 3px  solid #ffffff;
 outline: none;
-border: none;
-border-radius: 0px;
+border-radius: 10px;
 }
 
 .Form input:focus{
-border: none;
 background-color: transparent;
 box-shadow: none !important;
 }
@@ -19,4 +16,7 @@ box-shadow: none !important;
 .Form input[type='text']::placeholder{
 border: none;
 color: #ffffff;
+}
+button {
+    border-radius: 10px;
 }

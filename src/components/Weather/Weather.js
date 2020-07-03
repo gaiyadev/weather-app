@@ -15,7 +15,7 @@ const weather = (props) => {
                 {/* calling the minAndMAx function */}
                 {minAndMax_Temp(props.temp_min, props.temp_max)}
 
-                <h4 className="py-3">{props.description}</h4>
+                <h3 className="py-3">{props.description}</h3>
             </div>
         </div>
     );
@@ -26,8 +26,8 @@ const minAndMax_Temp = (min, max) => {
     if (min && max) {
         return (
             <h3 >
-                <span className="px-4">{min}&deg;</span>
-                <span className="px-4">{max}&deg;</span>
+                <span className="px-4"> <sub>min</sub> {min}&deg;</span>
+                <span className="px-4"><sub>min</sub> {max}&deg;</span>
             </h3>
         );
     }
