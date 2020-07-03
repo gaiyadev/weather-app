@@ -1,16 +1,15 @@
-
-import React, { Component } from 'react';
+import React from 'react';
 import InputField from '../../components/TextFields/InputField';
 
-
-class Weather extends Component {
+const API_Key = '7d1d5e1b3e6ff7d9cbac6936b2f277e5';
+class Weather extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
     }
     render() {
         return (
-            <div>
+            <div className="container">
                 <InputField />
             </div>
         );
