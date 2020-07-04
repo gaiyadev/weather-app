@@ -20,5 +20,6 @@ Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e72ff91b-3514-4567-9ec7-26aac55bb4a1/deploy-status)](https://open-weather-checker.netlify.app/)
 
 
