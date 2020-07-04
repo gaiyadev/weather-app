@@ -6,14 +6,14 @@ const textField = props => {
     return (
         <div className="container mt-5">
             <div>{props.error ? error() : null}</div>
-            <form onSubmit={props.onSubmitDetails} className="Form">
+            <form onSubmit={props.onSubmitDetails} autoComplete="off" className="Form">
                 <div className="row">
                     <div className="col-md-3 offset-md-2">
                         <div className="form-group input-group-lg">
                             <input type="text"
                                 placeholder="City (E.g Lagos)"
                                 className="form-control"
-                                id="city_name" autoComplete="off"
+                                id="city_name"
                                 name="city" />
                         </div>
                     </div>
@@ -24,7 +24,8 @@ const textField = props => {
                                 placeholder="Country (Eg Nigeria)"
                                 className="form-control"
                                 id="country_name"
-                                name="country" />
+                                name="country"
+                            />
                         </div>
                     </div>
                     <div className="col-md-3 mt-md-0 text-md-left">
@@ -36,11 +37,11 @@ const textField = props => {
     );
 }
 
-function error(s) {
+const error = () => {
     return (
         <div className="alert alert-danger mx-5" role="alert">
             Please provide a valid city and country name
         </div>
-    )
+    );
 }
 export default textField;
