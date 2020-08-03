@@ -1,7 +1,6 @@
 # Weather app
-    This application is built using ReactJs and the Open Weather map API, the app help to give weather condition 
-    of cities in the world. The result are (Temperature both  minimum and maximum temperature, Pressure and Humidity)
-## Available Scripts
+This application is built using ReactJs and the Open Weather map API, the app help to give weather condition 
+ of cities in the world. The result are (Temperature both  minimum and maximum temperature, Pressure and Humidity)
 
 ### `Usage`
 To get started  with this project just follow the following steps
